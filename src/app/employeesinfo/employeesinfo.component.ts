@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { environment } from 'src/environments/environment';
-import { DeletEmployeeComponent } from '../delet-employee/delet-employee.component';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { EmployeeDataService } from '../service/employee-data.service';
 import Swal from 'sweetalert2'
@@ -28,28 +27,32 @@ export interface employeedata {
 })
 export class EmployeesinfoComponent implements OnInit {
   EMPLOYEE_DATA!: any;
-  todayDate: Date = new Date();
   displayedColumns: string[] = ['FirstName', 'LastName', 'Email', 'DOB', 'Education', 'Company',
     'Experience', 'Package', 'Action', 'Delete'];
-  dataSource = new MatTableDataSource<employeedata>(this.EMPLOYEE_DATA);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private dialog: MatDialog, private employeedata: EmployeeDataService) {
+
+  dataSource = new MatTableDataSource(this.EMPLOYEE_DATA);
+  @ViewChild(MatPaginator , {static:true}) _paginator: MatPaginator;
+
+  constructor(private dialog: MatDialog, private employeedataService: EmployeeDataService) {
 
   }
 
   ngOnInit(): void {
     this.getAllEmployee();
     
+    
   }
   date: any
   getAllEmployee() {
-    this.employeedata.getEmployeeData(environment.BASE_API_PATH + "employeeDetail").subscribe(res => {
+    this.employeedataService.getEmployeeData(environment.BASE_API_PATH + "employeeDetail").subscribe(res => {
       if (res) {
         this.EMPLOYEE_DATA = res;
+        this.dataSource.paginator = this._paginator;
 
       }
     })
   }
+
   deletedata(id: number) {
     Swal.fire({
       title: 'Are you sure?',
@@ -60,7 +63,7 @@ export class EmployeesinfoComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-      this.employeedata.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , id).subscribe(res=>{
+      this.employeedataService.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , id).subscribe(res=>{
         if(res){
           this.getAllEmployee();
         }
@@ -75,12 +78,6 @@ export class EmployeesinfoComponent implements OnInit {
       }
     })
     
-    // this.dialog.open(DeletEmployeeComponent, {
-    //   width: '250px',
-    //   data: {
-    //     id: id
-    //   }
-    // });
   }
   updatedata(id: any) {
     this.dialog.open(EmployeeFormComponent, {
@@ -102,11 +99,14 @@ export class EmployeesinfoComponent implements OnInit {
 
 
   ngAfterViewInit() {
-    this.EMPLOYEE_DATA.paginator = this.paginator;
+    this.dataSource.paginator = this._paginator;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.EMPLOYEE_DATA.filter = filterValue.trim().toLowerCase();
+    console.log(filterValue);
+    
+    console.log(this.dataSource.filter === filterValue.trim().toLowerCase());
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

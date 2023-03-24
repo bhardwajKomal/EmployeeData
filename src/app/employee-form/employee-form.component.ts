@@ -83,13 +83,13 @@ export class EmployeeFormComponent implements OnInit {
         .subscribe(res => {
           if (res) {
             alert("Employee Added Successfully");
-            // this.closepopup();
-          
+            this.closepopup();
+            window.location.reload(); 
           } 
         });
         break;
       case DbOperation.update:
-        this.employeedataservice.updateEmployeeData(environment.BASE_API_PATH + "employeeDetail", this.employeedata.value)
+        this.employeedataservice.updateEmployeeData(environment.BASE_API_PATH + "employeeDetail/" , this.data.id , this.employeedata.value)
         .subscribe(res => {
           if (res) {
             this.buttonText = "Add Employee";
@@ -101,14 +101,7 @@ export class EmployeeFormComponent implements OnInit {
         });
         break;
     }
-    console.log("api callled")
-    this.employeedataservice.saveEmployeeData(environment.BASE_API_PATH + "employeeDetail", this.employeedata.value)
-      .subscribe(res => {
-        if (res) {
-          alert("Employee Added Successfully");
-          
-        } 
-      })
+    
   }
 
   closepopup() {

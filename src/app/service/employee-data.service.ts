@@ -27,7 +27,7 @@ export class EmployeeDataService {
     return this.http.delete(url + '/' + id );
   }
 
-  updateEmployeeData(url:string , model:any):Observable<employeemodel>{
-    return this.http.put<employeemodel>(url,model)
+  updateEmployeeData(url:string ,id:number, model:any):Observable<employeemodel>{
+    return this.http.put<employeemodel>(url + '/' + id , model)
   }
 }
