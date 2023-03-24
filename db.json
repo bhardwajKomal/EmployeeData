@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "employeeDetail": [
+    {
+      "firstName": "mnnk",
+      "lastName": "ddsfs",
+      "email": "fdsds@jhkj.cm",
+      "DOB": "2023-03-05T18:30:00.000Z",
+      "education": "Diploma",
+      "company": "ddd",
+      "experience": 2,
+      "package": 222333,
+      "gender": "F",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

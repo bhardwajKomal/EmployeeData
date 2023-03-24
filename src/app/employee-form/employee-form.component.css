@@ -1,0 +1,30 @@
+/* .mat-form-field{
+    width: 100%;
+} */
+
+mat-radio-button {
+    margin: 10px 12px;
+  }
+
+  .mat-form-field{
+    width: 48%;
+    padding: 1%;
+}
+.form-control{
+    width: 150px;
+    border-radius: 8px;
+    padding: 3px;
+}
+/* 
+td{
+    padding: 3px;
+    border: 1px solid gray;
+} */
+
+.datepicker{
+    height: 10px !important;
+}
+
+.mat-radio-group{
+    width: 200px !important;
+}

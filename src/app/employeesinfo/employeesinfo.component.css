@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+}
+
+.container {
+    margin: auto;
+    width: 70%;
+    padding: 30px;
+}
+
+
+  
+.mat-raised-button{
+    margin: 17px !important;
+}
+
+.mat-form-field-infix {
+    width: 283px !important; 
+}

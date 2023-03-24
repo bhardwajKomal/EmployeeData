@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/font-awesome/css/font-awesome.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-radio-group{
+    width: 200px !important;
+}
+.education {
+    margin-left: 185px;
+}
+
+.Dob{
+    height: 60px !important;
+}
