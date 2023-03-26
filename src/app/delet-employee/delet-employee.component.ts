@@ -19,10 +19,11 @@ export class DeletEmployeeComponent implements OnInit {
   }
 
   deleteEmployee(){
-    this.employeedataservice.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , this.data.id).subscribe(res=>{
-      if(res){
-        window.location.reload();
-      }
-    })
+    // this.employeedataservice.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , this.data.id)
+    // .subscribe(res=>{
+    //   if(res){
+        
+    //   }
+    // })
   }
 }

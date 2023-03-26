@@ -10,8 +10,8 @@ export class EmployeeDataService {
 
   constructor(private http:HttpClient) { }
 
-  getEmployeeData(url:string):Observable<employeemodel>{
-     return this.http.get<employeemodel>(url);
+  getEmployeeData(url:string):Observable<employeemodel[]>{
+     return this.http.get<employeemodel[]>(url);
   }
 
 // save employee details
