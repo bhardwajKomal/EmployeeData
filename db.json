@@ -8,15 +8,15 @@
   ],
   "employeeDetail": [
     {
-      "firstName": "mnnk",
-      "lastName": "ddsfs",
+      "firstName": "Ankush",
+      "lastName": "Pal",
       "email": "fdsds@jhkj.cm",
-      "DOB": "2023-03-05T18:30:00.000Z",
-      "education": "Matric",
-      "company": "ddd",
+      "DOB": "2023-03-06T18:30:00.000Z",
+      "education": "Intermediate",
+      "company": "Wipro",
       "experience": 2,
       "package": 222333,
-      "gender": "F",
+      "gender": "M",
       "id": 2
     },
     {
@@ -32,18 +32,6 @@
       "id": 5
     },
     {
-      "firstName": "komal2",
-      "lastName": "bhardwaj",
-      "email": "komal@gmail.com",
-      "DOB": "2023-03-05T18:30:00.000Z",
-      "education": "Graduate",
-      "company": "TATA",
-      "experience": 4,
-      "package": 39990,
-      "gender": "F",
-      "id": 6
-    },
-    {
       "firstName": "ankush",
       "lastName": "pal",
       "email": "ankush@gmail.com",
@@ -56,8 +44,8 @@
       "id": 8
     },
     {
-      "firstName": "mnnk",
-      "lastName": "ddsfs",
+      "firstName": "Raman",
+      "lastName": "Kumar",
       "email": "fdsds@jhkj.cm",
       "DOB": "2023-03-05T18:30:00.000Z",
       "education": "Post Graduate",
@@ -78,6 +66,18 @@
       "package": 23456,
       "gender": "F",
       "id": 10
+    },
+    {
+      "firstName": "Raman",
+      "lastName": "Kumar",
+      "email": "raman@gmail.com",
+      "DOB": "2016-02-15T18:30:00.000Z",
+      "education": "Post Graduate",
+      "company": "tcs",
+      "experience": 7,
+      "package": 1200000,
+      "gender": "M",
+      "id": 12
     }
   ],
   "comments": [

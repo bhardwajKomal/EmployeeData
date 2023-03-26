@@ -4,7 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 import { EmployeeDataService } from '../service/employee-data.service';
 import { DbOperation } from '../utility/db-operation';
-
+import * as alertify from 'alertifyjs'
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -82,9 +82,9 @@ export class EmployeeFormComponent implements OnInit {
         this.employeedataservice.saveEmployeeData(environment.BASE_API_PATH + "employeeDetail", this.employeedata.value)
         .subscribe(res => {
           if (res) {
-            alert("Employee Added Successfully");
+            alertify.success("Employee Added Successfully");
             this.closepopup();
-            window.location.reload(); 
+           
           } 
         });
         break;
@@ -94,8 +94,9 @@ export class EmployeeFormComponent implements OnInit {
           if (res) {
             this.buttonText = "Add Employee";
             this.dbops = DbOperation.create;
-            alert("Employee Data UpDate Successfully");
-            window.location.reload();
+            alertify.success("Employee Data UpDate Successfully");
+            this.closepopup();
+           
             
           } 
         });

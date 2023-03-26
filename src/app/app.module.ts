@@ -8,7 +8,8 @@ import { EmployeesinfoComponent } from './employeesinfo/employeesinfo.component'
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule}  from '@angular/common/http';
-import { DeletEmployeeComponent } from './delet-employee/delet-employee.component';
+
+import { PackageFormatPipe } from './package-format.pipe';
 
 
  
@@ -17,7 +18,8 @@ import { DeletEmployeeComponent } from './delet-employee/delet-employee.componen
     AppComponent,
     EmployeesinfoComponent,
     EmployeeFormComponent,
-    DeletEmployeeComponent
+   
+    PackageFormatPipe
   ],
   imports: [
     BrowserModule,

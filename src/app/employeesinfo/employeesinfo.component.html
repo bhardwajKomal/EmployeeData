@@ -36,7 +36,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="DOB">
       <th mat-header-cell *matHeaderCellDef> DOB </th>
-      <td mat-cell *matCellDef="let element"> {{element.DOB | date:'dd/MM/yyyy' }} </td>
+      <td mat-cell *matCellDef="let element"> {{element.DOB | date:'dd,MM,yyyy' }} </td>
     </ng-container>
     <ng-container matColumnDef="Gender">
       <th mat-header-cell *matHeaderCellDef> Gender </th>
@@ -56,7 +56,7 @@
     </ng-container>
     <ng-container matColumnDef="Package">
       <th mat-header-cell *matHeaderCellDef> Package </th>
-      <td mat-cell *matCellDef="let element"> {{element.package}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.package | packageFormat}} </td>
     </ng-container>
     <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
