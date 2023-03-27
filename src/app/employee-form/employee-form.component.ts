@@ -16,9 +16,9 @@ export class EmployeeFormComponent implements OnInit {
   dbops: DbOperation;
   buttonText: string = "";
   submitted: boolean = false;
-  constructor(private dialog: MatDialog, private employeedataservice: EmployeeDataService ,
-     @Inject(MAT_DIALOG_DATA) private data: any) { }
-    
+  constructor(private dialog: MatDialog, private employeedataservice: EmployeeDataService,
+    @Inject(MAT_DIALOG_DATA) private data: any) { }
+
   ngOnInit(): void {
 
     this.setEmployeeData();
@@ -27,17 +27,19 @@ export class EmployeeFormComponent implements OnInit {
     if (this.data.id && this.data.id != '' && this.data.id != null && this.data.id > 0) {
       this.buttonText = "Update";
       this.dbops = DbOperation.update;
-      this.employeedataservice.GetEmployeebycode(environment.BASE_API_PATH +"employeeDetail", this.data.id).subscribe(response => {
-       if(response){
-        this.employeedata.setValue(response);
-        
-       }
-        
+      this.employeedataservice.GetEmployeebycode(environment.BASE_API_PATH + "employeeDetail", this.data.id).subscribe(response => {
+        if (response) {
+          this.employeedata.setValue(response);
+
+        }
+
       });
     }
   }
+
+  
   setEmployeeData() {
-    
+
     this.buttonText = "Add Employee";
     this.dbops = DbOperation.create;
     this.employeedata = new FormGroup({
@@ -68,41 +70,39 @@ export class EmployeeFormComponent implements OnInit {
     this.dbops = DbOperation.create;
   }
 
-  get ctrl() {
-    return this.employeedata.controls;
-  }
+ 
 
+// Add and updating Employee Details
   SaveEmployee() {
     if (this.employeedata.invalid) {
       return;
     }
-  
+
     switch (this.dbops) {
       case DbOperation.create:
         this.employeedataservice.saveEmployeeData(environment.BASE_API_PATH + "employeeDetail", this.employeedata.value)
-        .subscribe(res => {
-          if (res) {
-            alertify.success("Employee Added Successfully");
-            this.closepopup();
-           
-          } 
-        });
+          .subscribe(res => {
+            if (res) {
+              alertify.success("Employee Added Successfully");
+              this.closepopup();
+
+            }
+          });
         break;
       case DbOperation.update:
-        this.employeedataservice.updateEmployeeData(environment.BASE_API_PATH + "employeeDetail/" , this.data.id , this.employeedata.value)
-        .subscribe(res => {
-          if (res) {
-            this.buttonText = "Add Employee";
-            this.dbops = DbOperation.create;
-            alertify.success("Employee Data UpDate Successfully");
-            this.closepopup();
-           
-            
-          } 
-        });
+        this.employeedataservice.updateEmployeeData(environment.BASE_API_PATH + "employeeDetail/", this.data.id, this.employeedata.value)
+          .subscribe(res => {
+            if (res) {
+              this.buttonText = "Add Employee";
+              this.dbops = DbOperation.create;
+              alertify.success("Employee Data UpDate Successfully");
+              this.closepopup();
+
+            }
+          });
         break;
     }
-    
+
   }
 
   closepopup() {

@@ -27,7 +27,7 @@
       "education": "Graduate",
       "company": "tcs",
       "experience": 3,
-      "package": 39990,
+      "package": 10000000,
       "gender": "F",
       "id": 5
     },
@@ -39,7 +39,7 @@
       "education": "Intermediate",
       "company": "tcs",
       "experience": 2,
-      "package": 1234000,
+      "package": 1234200,
       "gender": "M",
       "id": 8
     },
