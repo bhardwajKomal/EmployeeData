@@ -70,7 +70,9 @@ export class EmployeeFormComponent implements OnInit {
     this.dbops = DbOperation.create;
   }
 
- 
+ get ctrl(){
+  return this.employeedata.controls;
+ }
 
 // Add and updating Employee Details
   SaveEmployee() {
