@@ -70,18 +70,19 @@ export class EmployeesinfoComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-      this.employeedataService.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , id).subscribe(res=>{
-        if(res){
-          this.getAllEmployee();
-        }
-      })
-  
+      
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
+        this.employeedataService.deleteEmployeeById(environment.BASE_API_PATH + "employeeDetail" , id).subscribe(res=>{
+          if(res){
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            this.getAllEmployee();
+          }
+        })
+        
       }
     })
     
