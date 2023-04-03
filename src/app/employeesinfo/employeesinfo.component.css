@@ -17,3 +17,18 @@ table {
 .mat-form-field-infix {
     width: 283px !important; 
 }
+
+.addClass{
+    color: red;
+}
+
+.red-text{
+    background-color: red;
+}
+
+.green-text{
+    background-color: green;
+}
+.cyan-text{
+    background-color: cyan;
+}

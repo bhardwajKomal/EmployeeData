@@ -30,6 +30,11 @@ export interface employeedata {
 export class EmployeesinfoComponent implements OnInit {
   EMPLOYEE_DATA!: employeemodel[];
   dataSource:any;
+  data =[
+    {id:102, value:"angular"},
+    {id:103, value:"Node js"},
+    {id:104, value:"angular"},
+  ];
 
   displayedColumns: string[] = ['FirstName', 'LastName', 'Email', 'Gender','DOB', 'Education', 'Company',
     'Experience', 'Package', 'Action', 'Delete'];
@@ -46,12 +51,24 @@ export class EmployeesinfoComponent implements OnInit {
     
     
   };
-  
+
+  getclass(value : number):string{
+    return value > 800000 ? 'red-text' : 'green-text';
+  }
+
+ applyClass( value:number):boolean{
+  return  value>800000 ;
+ }
+
   getAllEmployee() {
     this.employeedataService.getEmployeeData(environment.BASE_API_PATH + "employeeDetail").subscribe(res => {
       if (res) {
-        console.log(res);
+        
         this.EMPLOYEE_DATA = res;
+        const name = this.EMPLOYEE_DATA[0]['firstName'];
+        console.log(name);
+        let package_font:[] = this.EMPLOYEE_DATA['id'];
+           
         this.dataSource=new MatTableDataSource<employeedata>(this.EMPLOYEE_DATA);
         this.dataSource.paginator=this._paginator;
        
